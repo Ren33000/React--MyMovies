@@ -1,11 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Pushster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 body {
-  background-color: rgb(24, 23, 23);
+  background: #870000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: rgb(238, 229, 229);
+  font-family: 'Pushster', cursive;
 }
 
 .movie-app {
   overflow-x: auto;
   flex-wrap: nowrap;
+}
+
+.header {
+  box-shadow: -8px 4px 2px 5px rgb(0 0 0 / 20%)
+}
+
+.footer {
+  background-color: #190A05;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}
+/* Container around movie-cards, scroll like Netflix */
+.row-container {
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+/* Scrolling bar under the row to disappear */
+.row-container::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -23,7 +50,7 @@ body {
 }
 
 
-/* Bottom black bar on top of movies cards (to put in favourite) */
+/* Black bar on bottom of movies cards (to add/remove favourite) */
 .overlay {
   position: absolute;
   background: rgb(24, 23, 23);
@@ -36,7 +63,7 @@ body {
   text-align: center;
 }
 
-.favourite-icon {
-  position: absolute;
-  left: 20px;
+.add-rmv-text {
+  font-family: 'Montserrat', sans-serif;  
+  font-size: 15px;
 }

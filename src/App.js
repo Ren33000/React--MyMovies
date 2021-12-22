@@ -3,13 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
 import Favourite from './components/Favourite'
 import RemoveFav from './components/RemoveFav';
+import Data from './components/Data';
 
 
 const App = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(Data);
   const [favourites, setFavourites] = useState([])
   const [userQuery, setUserQuery] = useState ('');
 
@@ -57,33 +59,33 @@ const App = () => {
   return (
     <div className='container-fluid movie-app'>
       {/* Movie List Header + SearchBar + List display */}
-      <div className='row d-flex align-items-center mt-4 mb-4'>
-        <Header heading="Movies"/>
+      <div className='header row d-flex align-items-center mt-4 mb-4'>
+        <Header heading="Movies" BiCameraMovie/>
         <SearchBar userQuery={userQuery} setUserQuery={setUserQuery}/>
       </div>
-
-
 
       <div className='row'>
         <MovieList 
           movies={movies} 
           handleFavouritesClick={addFavouriteMovies} 
-          key={movies.uniqueId} 
           favourite={Favourite}/>
       </div> 
 
       {/* Favourite List Header + List display */}
-      <div className='row d-flex align-items-center mt-4 mb-4'>
+      <div className='header row d-flex align-items-center mt-4 mb-4'>
         <Header heading="Favourites"/>
       </div>
       <div className='row'>
         <MovieList 
           movies={favourites} 
           handleFavouritesClick={removeFavouriteMovies} 
-          key={movies.uniqueId} 
           favourite={RemoveFav}/>
       </div> 
-    </div>
+
+      <div>
+        <Footer />
+      </div>
+    </div>   
   );
 };
 

@@ -4,6 +4,7 @@ const Favourite = () => {
     return (
         <div>
             <span className='mr-2'>Add to your Favourites </span>
+            {/* Bootstrap icon heart */}
             <svg xmlns="http://www.w3.org/2000/svg" 
                 width="16" 
                 height="16" 

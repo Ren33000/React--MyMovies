@@ -34,6 +34,14 @@ const App = () => {
     setFavourites(newFavouriteList);
   }
 
+  // Remove movies from favourite list
+  const removeFavouriteMovies = (movie) => {
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.id !== movie.id
+    )
+    setFavourites(newFavouriteList);
+  }
+
   return (
     <div className='container-fluid movie-app'>
       {/* Movie List Header + SearchBar + List display */}
@@ -57,9 +65,9 @@ const App = () => {
       <div className='row'>
         <MovieList 
           movies={favourites} 
-          handleFavouritesClick={addFavouriteMovies} 
+          handleFavouritesClick={removeFavouriteMovies} 
           key={movies.uniqueId} 
-          favourite={Favourite}/>
+          favourite={RemoveFav}/>
       </div> 
     </div>
   );

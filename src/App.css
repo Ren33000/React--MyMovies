@@ -8,6 +8,8 @@ body {
   flex-wrap: nowrap;
 }
 
+
+/* Movies cards */
 .image-container {
   position: relative;
   transition: transform 0.2s;
@@ -20,6 +22,8 @@ body {
   opacity: 0.8;
 }
 
+
+/* Bottom black bar on top of movies cards (to put in favourite) */
 .overlay {
   position: absolute;
   background: rgb(24, 23, 23);

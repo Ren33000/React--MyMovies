@@ -35,3 +35,8 @@ body {
   padding: 30px;
   text-align: center;
 }
+
+.favourite-icon {
+  position: absolute;
+  left: 20px;
+}

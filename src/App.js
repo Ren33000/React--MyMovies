@@ -62,6 +62,8 @@ const App = () => {
         <SearchBar userQuery={userQuery} setUserQuery={setUserQuery}/>
       </div>
 
+
+
       <div className='row'>
         <MovieList 
           movies={movies} 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
+import MovieDetails from './components/MovieDetails';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
@@ -60,7 +61,7 @@ const App = () => {
     <div className='container-fluid movie-app'>
       {/* Movie List Header + SearchBar + List display */}
       <div className='header row d-flex align-items-center mt-4 mb-4'>
-        <Header heading="Movies" BiCameraMovie/>
+        <Header heading="My Movies" BiCameraMovie/>
         <SearchBar userQuery={userQuery} setUserQuery={setUserQuery}/>
       </div>
 
@@ -84,6 +85,7 @@ const App = () => {
 
       <div>
         <Footer />
+        <MovieDetails movies={movies} title={movies.title} />
       </div>
     </div>   
   );

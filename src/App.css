@@ -20,11 +20,16 @@ body {
 }
 
 .header {
-  box-shadow: -8px 4px 2px 5px rgb(0 0 0 / 20%)
+  box-shadow: -8px 4px 2px 5px rgb(0 0 0 / 20%);
+  background: #870000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .footer {
-  background-color: #190A05;
+  background: #870000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #190A05, #4b0f0f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: auto;
   text-align: center;
   font-size: 20px;
@@ -55,6 +60,7 @@ body {
   cursor: pointer;
   position: relative;
   transition: transform 0.2s;
+
 }
 
 .movie-container:hover {
@@ -63,22 +69,21 @@ body {
 }
 .movie-container:hover .overlay {
   opacity: 0.8;
-  overflow-y: scroll;
 }
 
 .cover-image {
   object-fit: cover;
-  width: 215px;
+  min-width: 215px;
 }
 
 .movie-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: black;
+  font-size: 20px;
+  text-align: center;
   margin: 15px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'Montserrat', sans-serif;  
 }
 
 .info-column {
@@ -90,7 +95,7 @@ body {
 .movie-infos {
   font-size: 16px;
   font-weight: 500;
-  color: black;
+  font-family: 'Montserrat', sans-serif;  
   white-space: nowrap;
   overflow: hidden;
   text-transform: capitalize;
@@ -116,8 +121,6 @@ body {
 
 }
 .text-overlay{
-  color: red;
-overflow: visible;
 }
 .add-rmv-text {
   font-family: 'Pushster', cursive;

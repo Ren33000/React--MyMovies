@@ -8,7 +8,7 @@ const MovieList = (props) => {
         <div className='row-container d-flex'>
             {props.movies.map((movie, index) => 
             <div className='movie-container d-flex justify-content-start m-3' >
-                <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} key={movie.id} />
+                <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} key={movie.id} className='cover-image' />
                 <div className='movie-title'>{movie.title}</div>
                 <div className="info-column">
                     <div className="movie-infos">{movie.release_date.slice(0, 4)}</div>

@@ -61,7 +61,7 @@ const App = () => {
       <div className='container-fluid movie-app'>
         {/* Movie List Header + SearchBar + List display */}
         <div className='header row d-flex align-items-center mt-4 mb-4'>
-          <Header heading="My Movies" BiCameraMovie />
+          <Header heading="My Movies" />
           <SearchBar userQuery={userQuery} setUserQuery={setUserQuery}/>
         </div>
         <div className='row'>

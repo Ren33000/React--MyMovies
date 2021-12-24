@@ -2,7 +2,7 @@ import React from 'react';
 
 const RemoveFav = () => {
     return (
-        <div>
+        <div className=' mt-3'>
         <span className='add-rmv-text'>Remove from favourites </span>
         <br></br>
         {/* Bootstrap icon trash */}

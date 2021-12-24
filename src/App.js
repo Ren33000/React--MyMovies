@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 import MovieList from './components/MovieList';
-import MovieDetails from './components/MovieDetails';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
@@ -13,6 +13,8 @@ import Data from './components/Data';
 
 const App = () => {
   const [movies, setMovies] = useState(Data);
+  const [selectedMovie, setSelectedMovie] = useState ();
+
   const [favourites, setFavourites] = useState([])
   const [userQuery, setUserQuery] = useState ('');
 
@@ -31,21 +33,20 @@ const App = () => {
     getMovieRequest(userQuery);
   }, [userQuery]);
 
-  // Save favourites to Local Storage
-  useEffect(() => {
-    const movieFavourites = JSON.parse(localStorage.getItem('react-my-movies-favourites'));
-    setFavourites(movieFavourites);
-  }, [])
-
-  const saveToLocalStorage = (items) => {
-    localStorage.setItem('react-my-movies-favourites', JSON.stringify(items))
-  }
 
   // Create the list of favourite movies
   const addFavouriteMovies = (movie) => {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
+  }
+  // Save favourites to Local Storage
+  useEffect(() => {
+    const movieFavourites = JSON.parse(localStorage.getItem('react-my-movies-favourites'));
+    setFavourites(movieFavourites);
+  }, [])
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('react-my-movies-favourites', JSON.stringify(items))
   }
 
   // Remove movies from favourite list
@@ -58,36 +59,36 @@ const App = () => {
   }
 
   return (
-    <div className='container-fluid movie-app'>
-      {/* Movie List Header + SearchBar + List display */}
-      <div className='header row d-flex align-items-center mt-4 mb-4'>
-        <Header heading="My Movies" BiCameraMovie/>
-        <SearchBar userQuery={userQuery} setUserQuery={setUserQuery}/>
-      </div>
+    <div>
+      <div className='container-fluid movie-app'>
+        {/* Movie List Header + SearchBar + List display */}
+        <div className='header row d-flex align-items-center mt-4 mb-4'>
+          <Header heading="My Movies" BiCameraMovie />
+          <SearchBar userQuery={userQuery} setUserQuery={setUserQuery}/>
+        </div>
+        <div className='row'>
+          <MovieList 
+            movies={movies} 
+            handleFavouritesClick={addFavouriteMovies} 
+            favourite={Favourite}
+            setSelectedMovie={setSelectedMovie}/>
 
-      <div className='row'>
-        <MovieList 
-          movies={movies} 
-          handleFavouritesClick={addFavouriteMovies} 
-          favourite={Favourite}/>
+        </div> 
+
+        {/* Favourite List Header + List display */}
+        <div className='header row d-flex align-items-center mt-4 mb-4'>
+          <Header heading="Favourites"/>
+        </div>
+        <div className='row'>
+          <MovieList 
+            movies={favourites} 
+            handleFavouritesClick={removeFavouriteMovies} 
+            favourite={RemoveFav}
+            setSelectedMovie={setSelectedMovie}/>
+        </div> 
       </div> 
-
-      {/* Favourite List Header + List display */}
-      <div className='header row d-flex align-items-center mt-4 mb-4'>
-        <Header heading="Favourites"/>
-      </div>
-      <div className='row'>
-        <MovieList 
-          movies={favourites} 
-          handleFavouritesClick={removeFavouriteMovies} 
-          favourite={RemoveFav}/>
-      </div> 
-
-      <div>
-        <Footer />
-        <MovieDetails movies={movies} title={movies.title} />
-      </div>
-    </div>   
+      <Footer />
+    </div>  
   );
 };
 

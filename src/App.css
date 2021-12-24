@@ -10,6 +10,8 @@ body {
   background: linear-gradient(to right, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: rgb(238, 229, 229);
   font-family: 'Pushster', cursive;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie-app {
@@ -28,11 +30,15 @@ body {
   font-size: 20px;
   padding: 10px;
   padding-top: 20px;
+  width: 100%;
+  flex-shrink: 0;
 }
 /* Container around movie-cards, scroll like Netflix */
 .row-container {
   overflow-y: hidden;
   overflow-x: scroll;
+  padding: 20px;
+  flex: 1 0 auto;
 }
 /* Scrolling bar under the row to disappear */
 .row-container::-webkit-scrollbar {
@@ -57,6 +63,7 @@ body {
 }
 .movie-container:hover .overlay {
   opacity: 0.8;
+  overflow-y: scroll;
 }
 
 .cover-image {
@@ -72,9 +79,6 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  & span {
-    opacity: 0.8;
-  }
 }
 
 .info-column {
@@ -91,24 +95,7 @@ body {
   overflow: hidden;
   text-transform: capitalize;
   text-overflow: ellipsis;
-  & span {
-    opacity: 0.5;
-  }
 }
-
-/* 
-Movies cards
-.image-container {
-  position: relative;
-  transition: transform 0.2s;
-}
-.image-container:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-.image-container:hover .overlay {
-  opacity: 0.8;
-} */
 
 
 /* Black bar on bottom of movies cards (to add/remove favourite) */
@@ -122,44 +109,17 @@ Movies cards
   opacity: 0;
   bottom: 0;
   font-size: 16px;
-  padding: 30px;
+  padding: 20px;
   margin-left: -10px;
   text-align: center;
   justify-content: center;
-overflow-y: scroll;
 
 }
-
+.text-overlay{
+  color: red;
+overflow: visible;
+}
 .add-rmv-text {
   font-family: 'Pushster', cursive;
   font-size: 15px;
-
-}
-
-
-/* Movie info */
-.container {
-  display: flex;
-  flex-direction: row;
-  padding: 20px 30px;
-  justify-content: center;
-  border-bottom: 1px solid lightgray;
-}
-
-
-.details-info-column{
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-}
-.close {
-  font-size: 16px;
-  font-weight: 600;
-  color: black;
-  background: lightgray;
-  height: fit-content;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.8;
 }

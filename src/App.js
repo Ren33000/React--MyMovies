@@ -13,8 +13,6 @@ import Data from './components/Data';
 
 const App = () => {
   const [movies, setMovies] = useState(Data);
-  const [selectedMovie, setSelectedMovie] = useState ();
-
   const [favourites, setFavourites] = useState([])
   const [userQuery, setUserQuery] = useState ('');
 
@@ -70,9 +68,7 @@ const App = () => {
           <MovieList 
             movies={movies} 
             handleFavouritesClick={addFavouriteMovies} 
-            favourite={Favourite}
-            setSelectedMovie={setSelectedMovie}/>
-
+            favourite={Favourite}/>
         </div> 
 
         {/* Favourite List Header + List display */}
@@ -83,8 +79,7 @@ const App = () => {
           <MovieList 
             movies={favourites} 
             handleFavouritesClick={removeFavouriteMovies} 
-            favourite={RemoveFav}
-            setSelectedMovie={setSelectedMovie}/>
+            favourite={RemoveFav}/>
         </div> 
       </div> 
       <Footer />

@@ -11,11 +11,11 @@ const MovieList = (props) => {
                 <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} key={movie.id} />
                 <div className='movie-title'>{movie.title}</div>
                 <div className="info-column">
-                    <div className="movie-infos">{movie.release_date}</div>
-                    <div className="movie-infos"></div>
+                    <div className="movie-infos">{movie.release_date.slice(0, 4)}</div>
+                    <div className="movie-infos">{movie.vote_average} /10</div>
                 </div>
-                <div onClick={() => props.handleFavouritesClick(movie)} className='overlay d-flex align-items-center justify-center'>
-                    {movie.overview}
+                <div onClick={() => props.handleFavouritesClick(movie)} className='overlay d-flex'>
+                    <div className='text-overlay'>{movie.overview}</div>
                     <FavouriteComponent />
                 </div>    
             </div>

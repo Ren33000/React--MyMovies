@@ -4,7 +4,7 @@
 I have realized a very similar app at Le Wagon (API call to TMDB + routes + add/remove to lists) but on Ruby on Rails 
 (repo: https://github.com/Ren33000/RAILS---Watch-list)
 
-Got a bit confused about the way to do in React, saw different tutorials doing it in different ways (with routes, without routes, with axios or fetch...).
+Got a bit confused about the way to do in React, saw different tutorials doing it in different ways (with routes, without routes, with axios or fetch...). I have tried what I thought would give the best result in term of UI/UX.
 
 
 <p align="center">
@@ -28,7 +28,7 @@ Decided to keep the result in local storage (not a lot of data to store in this 
 
 Unable to call the API with a selected movie in a different page => decided to show the details instead in the movie card + overlay. Same result for the user at the end (able to see the movie's details + not having to leave the page which is usually good UX) but not following the process asked
 
-Not sure if using routes was appropriate here, since I couldnt' manage to call the API on selected movies didnt' do anyway
+Not sure if using routes was appropriate here and since I couldnt' manage to call the API on selected movies didn't do anyway
 
 Unable to get the movie's description scrolling in the overlay (tried overflow: scroll, text-overflow on different elements, able to select the text to change the color for example but unable to make it scroll).
 
